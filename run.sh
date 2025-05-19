@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <exercise_number> <file_name>"
+    echo "Example: $0 12 main"
+    exit 1
+fi
+
+EXERCISE_NUMBER=$1
+EXERCISE_NAME=$2
+
+# Path to executable
+EXECUTABLE="build/exercise_${EXERCISE_NUMBER}_${EXERCISE_NAME}"
+
+if [ ! -f "$EXECUTABLE" ]; then
+    echo "Error: Executable file not found: $EXECUTABLE"
+    exit 1
+fi
+
+# Run the program
+"$EXECUTABLE" 
